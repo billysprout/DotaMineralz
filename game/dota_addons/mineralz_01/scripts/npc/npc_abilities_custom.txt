@@ -1,5 +1,3 @@
-
-// Dota Abilities Override File
 "DOTAAbilities"
 {
   "Version"   "1"
@@ -217,71 +215,15 @@
     "BaseClass"           "ability_datadriven"
     "AbilityTextureName"            "rubick_empty1"
   }
-  
-  "barebones_empty2"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    //"ID"              "5343"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "MaxLevel"            "0"
-    "BaseClass"           "ability_datadriven"
-    "AbilityTextureName"            "rubick_empty1"
-  }
-  
-  "barebones_empty3"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    //"ID"              "5343"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "MaxLevel"            "0"
-    "BaseClass"           "ability_datadriven"
-    "AbilityTextureName"            "rubick_empty1"
-  }
-  
-  "barebones_empty4"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    //"ID"              "5343"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "MaxLevel"            "0"
-    "BaseClass"           "ability_datadriven"
-    "AbilityTextureName"            "rubick_empty1"
-  }
-  
-  "barebones_empty5"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    //"ID"              "5343"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "MaxLevel"            "0"
-    "BaseClass"           "ability_datadriven"
-    "AbilityTextureName"            "rubick_empty1"
-  }
-  
-  "barebones_empty6"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    //"ID"              "5343"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "MaxLevel"            "0"
-    "BaseClass"           "ability_datadriven"
-    "AbilityTextureName"            "rubick_empty1"
-  }
-
      //=================================================================================================================
-   // Colonist: make building
+   // Mineralz
      //=================================================================================================================
-        "colonist_make_building"
+        "mz_spawn_cannon"
         {
                 "BaseClass" "ability_datadriven"
-                "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET  |   DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+                "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT  |   DOTA_ABILITY_BEHAVIOR_CHANNELLED"
                 "AbilityManaCost" "0"
- 
+				        "MaxLevel" "1"
                 "AbilityTextureName"            "axe_battle_hunger"
                 "AbilityCastRange" "0"
                 "AbilityCastPoint" "0"
@@ -291,38 +233,123 @@
                 {
                         "SpawnUnit"
                         {
-                                "UnitName" "npc_dota_tower_basedef"
+                                "UnitName" "mz_structure_cannon"
                                 "UnitCount" "1"
-                                "SpawnRadius" "350"
+                                //"SpawnRadius" "350"
+								                "Target" "POINT"
                         }
                 }
         }
-		//this is the project name(example is holdout but this is riki) + the skill name.
-    "destroy_tree"
+
+        "mz_spawn_wall"
+        {
+            "BaseClass"               "ability_datadriven"
+            "AbilityTextureName"      "axe_berserkers_call"
+            "MaxLevel"             "7"
+
+            "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+            "AbilityChannelTime" "1.5"
+            "AbilityCastRange" "600"
+            "AbilityCastPoint" "0"
+
+            "OnChannelSucceeded"
+            {
+              "SpawnUnit"
+              {
+                "UnitName"    "mz_structure_wall"
+                "Target"     "POINT"
+                "UnitCount"    "1"
+                "SpawnRadius"  "10"
+                "OnSpawn"
+                {
+                  
+                }
+              }
+            }
+        }
+		
+    "mz_destroy_tree"
     {
-        // General
-        //-------------------------------------------------------------------------------------------------------        ------
-        "BaseClass"                                             "ability_datadriven"                                                                 
-        "AbilityBehavior"                                       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-        "AbilityUnitTargetType"                                 "DOTA_UNIT_TARGET_TREE"
-        "AbilityTextureName"                                    "riki_backstab"
-
-        // Casting
-        //-------------------------------------------------------------------------------------------------------    ------
-
-        "AbilityCastRange"                              "600"
-        "AbilityCastPoint"                              "0.0"
-        "AbilityCooldown"                               "30.0 15.0 10.0 5.0"
-
-        // Cost
-        //-------------------------------------------------------------------------------------------------------    ------
-        "AbilityManaCost"                               "0"
-
-            "DestroyTrees"
-                     {
-                               "Target"                        "POINT"
-                     }
-
+       "BaseClass"                                             "ability_datadriven"                                                                 
+       "AbilityBehavior"                                       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+       "AbilityUnitTargetType"                                 "DOTA_UNIT_TARGET_TREE"
+       "AbilityTextureName"                                    "riki_backstab"
+       
+	     "MaxLevel" "1"
+       "AbilityCastRange"                              "600"
+       "AbilityCastPoint"                              "0.0"
+       "AbilityCooldown"                               "0.2"
+       "AbilityManaCost"                               "0"
+	     "OnSpellStart"
+	     {
+           "DestroyTrees"
+           {
+               "Target" "POINT"
+           }
+	     }
     }
+
+	"mz_destroy"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELED"
+		"AbilityTextureName"	"gyrocopter_call_down"
+
+		"DefaultLevel" "1"
+		"MaxLevel" "1"
+
+		"AbilityManaCost" "0"
+		"Abilitychanneltime" "2.0"
+
+		"OnChannelSucceeded"
+		{
+			"Damage"
+			{
+				"Target" "CASTER"
+				"Type" "DAMAGE_TYPE_PURE"
+				"Damage" "1000000"
+			}
+		}
+	}
+
+	"mz_creep_spawner"
+	{
+		"BaseClass" "ability_datadriven"
+		
+		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName" "antimage_blink"
+		"AbilityManaCost" "0"
+
+		"AbilityCastRange" "0"
+		"AbilityCastPoint" "0"
+		"AbilityChannelTime" "5.0"
+
+		"OnChannelSucceeded"
+		{
+			"CreateThinker"
+			{
+				"ModifierName" "spawner"
+				"Target" "CASTER"
+			}
+		}
+
+		"Modifiers"
+		{
+			"spawner"
+			{
+				"ThinkInterval" "5.0"
+				"OnIntervalThink"
+				{
+					"SpawnUnit"
+					{
+						"UnitName" "mz_unit_creep1"
+						"UnitCount" "1"
+						"SpawnRadius" "100"
+						"Target" "CASTER"	
+					}
+				}
+			}	
+		}
+	}
 }
 
