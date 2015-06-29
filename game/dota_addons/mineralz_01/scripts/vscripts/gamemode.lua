@@ -3,8 +3,6 @@
 
 -- Set this to true if you want to see a complete debug output of all events/processes done by barebones
 -- You can also change the cvar 'barebones_spew' at any time to 1 or 0 for output/no output
-BAREBONES_DEBUG_SPEW = false 
-
 if GameMode == nil then
     DebugPrint( '[BAREBONES] creating barebones game mode' )
     _G.GameMode = class({})
@@ -81,10 +79,13 @@ function GameMode:OnHeroInGame(hero)
 
   -- This line for example will set the starting gold of every hero to 500 unreliable gold
   hero:SetGold(500, false)
-
+  hero:HeroLevelUp(true)
+  hero:HeroLevelUp(true)
+  hero:HeroLevelUp(true)
+  hero:HeroLevelUp(true)
   -- These lines will create an item and add it to the player, effectively ensuring they start with the item
   hero:AddItem(CreateItem("item_quelling_blade", hero, hero))
-
+  
   --[[ --These lines if uncommented will replace the W ability of any hero that loads into the game
     --with the "example_ability" ability
 

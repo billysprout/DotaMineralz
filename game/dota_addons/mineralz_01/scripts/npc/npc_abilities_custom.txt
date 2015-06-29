@@ -176,11 +176,7 @@
       }
     }
   }
-  
-//-------------------
-// Dummy stuff
-//-------------------
-  
+
   "dummy_unit"
   {
     "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -204,8 +200,8 @@
       }
     }
   }
-  
-  "barebones_empty1"
+
+  "barebones_empty_a"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
@@ -215,61 +211,124 @@
     "BaseClass"           "ability_datadriven"
     "AbilityTextureName"            "rubick_empty1"
   }
-     //=================================================================================================================
-   // Mineralz
-     //=================================================================================================================
-        "mz_spawn_cannon"
-        {
-                "BaseClass" "ability_datadriven"
-                "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT  |   DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-                "AbilityManaCost" "0"
-				        "MaxLevel" "1"
-                "AbilityTextureName"            "axe_battle_hunger"
-                "AbilityCastRange" "0"
-                "AbilityCastPoint" "0"
-                "AbilityChannelTime" "1.5"
+  //=================================================================================================================
+// Mineralz
+  //=================================================================================================================
+  "mz_spawn_cannon1"
+  {
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT  |   DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "AbilityManaCost" "0"
+	   "MaxLevel" "1"
+    "AbilityTextureName"            "axe_battle_hunger"
+    "AbilityCastRange" "0"
+    "AbilityCastPoint" "0"
+    "AbilityChannelTime" "1.5"
  
-                "OnChannelSucceeded"
-                {
-                        "SpawnUnit"
-                        {
-                                "UnitName" "mz_structure_cannon"
-                                "UnitCount" "1"
-                                //"SpawnRadius" "350"
-								                "Target" "POINT"
-                        }
-                }
-        }
-
-        "mz_spawn_wall"
-        {
-            "BaseClass"               "ability_datadriven"
-            "AbilityTextureName"      "axe_berserkers_call"
-            "MaxLevel"             "7"
-
-            "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-            "AbilityChannelTime" "1.5"
-            "AbilityCastRange" "600"
-            "AbilityCastPoint" "0"
-
-            "OnChannelSucceeded"
-            {
-              "SpawnUnit"
-              {
-                "UnitName"    "mz_structure_wall"
-                "Target"     "POINT"
-                "UnitCount"    "1"
-                "SpawnRadius"  "10"
-                "OnSpawn"
-                {
-                  
-                }
-              }
-            }
-        }
-		
-    "mz_destroy_tree"
+    "OnChannelSucceeded"
     {
+            "SpawnUnit"
+            {
+                    "UnitName" "mz_structure_cannon"
+                    "UnitCount" "1"
+                    //"SpawnRadius" "350"
+		                "Target" "POINT"
+            }
+    }
+  }
+
+  "mz_spawn_wall1"
+  {
+    "BaseClass"               "ability_datadriven"
+    "AbilityTextureName"      "axe_berserkers_call"
+    "MaxLevel"                "1"
+
+    "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "AbilityChannelTime" "1.5"
+    "AbilityCastRange" "600"
+    "AbilityCastPoint" "0"
+
+    "OnChannelSucceeded"
+    {
+      "SpawnUnit"
+      {
+        "UnitName"    "mz_structure_wall1"
+        "Target"     "POINT"
+        "UnitCount"    "1"
+        "OnSpawn"
+        {
+          
+        }
+      }
+    }
+  }
+
+ "mz_spawn_healer1"
+  {
+    "BaseClass"               "ability_datadriven"
+    "AbilityTextureName"      "treant_natures_guise"
+    "MaxLevel"                "1"
+
+    "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "AbilityChannelTime" "1.5"
+    "AbilityCastRange" "600"
+    "AbilityCastPoint" "0"
+
+    "OnChannelSucceeded"
+    {
+      "SpawnUnit"
+      {
+        "UnitName"    "mz_structure_heal1"
+        "Target"     "POINT"
+        "UnitCount"    "1"
+        "OnSpawn"
+        {
+          
+        }
+      }
+    }
+  }
+  "mz_upgrade_cannon1"
+  {
+    "BaseClass"                 "ability_datadriven"
+    "AbilityTextureName"        "axe_battle_hunger"
+    "MaxLevel"                  "1"
+
+    "AbilityBehavior"            "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+
+    "AbilityChannelTime" "5.0"
+
+    "OnChannelSucceeded"
+    {
+      "ReplaceUnit"
+      {
+        "UnitName"      "mz_structure_cannon2"
+        "Target"        "CASTER"
+      }
+    }
+  }
+  "mz_upgrade_wall1"
+  {
+    "BaseClass"                 "ability_datadriven"
+    "AbilityTextureName"        "axe_berserkers_call"
+    "MaxLevel"                  "1"
+
+    "AbilityBehavior"            "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+
+    "AbilityChannelTime" "5.0"
+
+    "OnChannelSucceeded"
+    {
+      "ReplaceUnit"
+      {
+        "UnitName"      "mz_structure_wall2"
+        "Target"        "CASTER"
+      }
+    }
+  }
+		
+  "mz_destroy_tree"
+  {
        "BaseClass"                                             "ability_datadriven"                                                                 
        "AbilityBehavior"                                       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
        "AbilityUnitTargetType"                                 "DOTA_UNIT_TARGET_TREE"
@@ -287,7 +346,7 @@
                "Target" "POINT"
            }
 	     }
-    }
+  }
 
 	"mz_destroy"
 	{
@@ -311,6 +370,52 @@
 			}
 		}
 	}
+
+  "mz_heal1"
+  {
+    "BaseClass"                 "ability_datadriven"
+    "AbilityTextureName"      "treant_living_armor"
+    "MaxLevel"             "1"
+
+    "AbilityBehavior"            "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL | DOTA_UNIT_TARGET_BUILDING"
+    "AbilityUnitTargetTeam"      "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+
+    "AbilityCastRange"        "1200"
+    "AbilityCastPoint"        "0.3"
+    "AbilityCastAnimation"    "ACT_DOTA_DISABLED"
+    "AbilityChannelTime"      "50.0"
+    
+    "OnSpellStart"
+    {
+      "ApplyModifier"
+      {
+        "ModifierName"  "modifier_healer"
+        "Target"        "TARGET"
+      }
+    }
+
+    "OnChannelInterrupted"
+    {
+      "RemoveModifier"
+      {
+        "Target"        "TARGET"
+        "ModifierName"  "healer"
+      }
+    }
+
+    "Modifiers"
+    {
+      "modifier_healer"
+      {
+        "Attributes"    "MODIFIER_ATTRIBUTE_MULTIPLE"
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "15"
+        }
+      }
+    }
+  }
 
 	"mz_creep_spawner"
 	{

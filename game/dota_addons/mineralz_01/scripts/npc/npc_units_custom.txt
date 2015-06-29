@@ -94,7 +94,7 @@
     "AttackDesire"        "1.5"   // How much bots want to attack them vs other non-hero things
   } 
 
-  "mz_structure_cannon"
+    "mz_structure_cannon"
 	{
 		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
 		"Model"						"models/props_structures/tower_good.mdl"// Model.
@@ -104,7 +104,7 @@
 		"MinimapIconSize"			"0"
 		"Level"						"1"
 		
-		"Ability1"					"antimage_blink"			// Ability 1.
+		"Ability1"					"mz_upgrade_cannon1"			// Ability 1.
 		"Ability2"					"phantom_assassin_blur"			// Ability 2.
 		"Ability3"					""			// Ability 3.
 		"Ability4"					""			// Ability 4.
@@ -120,38 +120,93 @@
 		"AttackDamageMax"			"10"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1"			// Speed of attack.
-		"AttackAnimationPoint"		"0.0"		// Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"	"1600"		// Range within a target can be acquired.
 		"AttackRange"				"800"		// Range within a target can be attacked.
 		"ProjectileModel"			"particles/base_attacks/ranged_tower_good.vpcf"		// Particle system model for projectile.
 		"ProjectileSpeed"			"600"		// Speed of projectile.
 
-	//	"BoundsHullName"			"DOTA_HULL_SIZE_TOWER"			// Hull type used for navigation/locomotion.
-		"ProjectileCollisionSize"	"50"
-		"RingRadius"				"50"
-		"HealthBarOffset"			"100"
-
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"			// Type of locomotion - ground, air
 		"MovementTurnRate"			"1.0"			// Turning rate.
 
-		"StatusHealth"				"13"		// Base health.
+		"StatusHealth"				"200"		// Base health.
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 	}
 
-    "mz_structure_wall"
+    "mz_structure_cannon2"
+    {
+        "BaseClass"                 "npc_dota_creature" // Class of entity of link to.
+        "Model"                     "models/props_structures/tower_bad.mdl"// Model.
+        "ModelScale"                ".3"
+        "SoundSet"                  "Tower.Water"                   // Name of sound set.
+        "MinimapIcon"               ""
+        "MinimapIconSize"           "0"
+        "Level"                     "1"
+        
+        "Ability1"                  "mz_upgrade_cannon1"            // Ability 1.
+        "Ability2"                  "phantom_assassin_blur"         // Ability 2.
+        "Ability3"                  ""          // Ability 3.
+        "Ability4"                  ""          // Ability 4.
+        "Ability5"                  ""          // Ability 5.
+        "Ability6"                  ""          // Ability 6 - Extra.
+        "Ability7"                  ""          // Ability 7 - Extra.
+        "Ability8"                  "mz_destroy"            // Ability 8 - Extra.
+
+        "ArmorPhysical"             "5"     // Physical protection.
+        "MagicalResistance"             "0"         // Magical protection.
+        "AttackCapabilities"        "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageMin"           "20"        // Damage range min.
+        "AttackDamageMax"           "20"        // Damage range max.
+        "AttackDamageType"          "DAMAGE_TYPE_ArmorPhysical"
+        "AttackRate"                "1"         // Speed of attack.
+        "AttackRange"               "800"       // Range within a target can be attacked.
+        "ProjectileModel"           "particles/base_attacks/ranged_tower_bad.vpcf"     // Particle system model for projectile.
+        "ProjectileSpeed"           "600"       // Speed of projectile.
+
+        "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_NONE"           // Type of locomotion - ground, air
+        "MovementTurnRate"          "1.0"           // Turning rate.
+
+        "StatusHealth"              "400"       // Base health.
+        "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+    }
+
+    "mz_structure_wall1"
     {
         "BaseClass"             "npc_dota_creature"
-        "Model"                 "models/props_items/bloodstone.vmdl"
-        "ModelScale"            "1.5"
+        "Model"                 "models\props_structures\good_statue008.vmdl"
+        "StatusHealth"          "500"
+        "ModelScale"            ".5"
+
+        "Ability1"              "mz_upgrade_wall1"
+        "Ability8"              "mz_destroy"
+    }
+
+    mz_structure_wall2
+    {
+    
+        "BaseClass"             "npc_dota_creature"
+        "Model"                     "models/props_structures/tower_bad.mdl"// Model.
+        "ModelScale"                ".3"
+
+        "AttackCapabilities"    "DOTA_UNIT_CAP_CANT_ATTACK"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_NONE"
+
+        "StatusHealth"          "1000"
+
+        "Ability8"              "mz_destroy"
+    }
+
+    "mz_structure_heal1"
+    {
+        "BaseClass"             "npc_dota_creature"
+        "Model"                 "models/items/furion/treant/shroomling_treant/shroomling_treant.vmdl"
 
         "AttackCapabilities"    "DOTA_UNIT_CAP_CANT_ATTACK"
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_NONE"
         
-        "StatusHealth"          "100"
-        "BoundsHullName"        "DOTA_HULL_SIZE_TOWER"
+        "StatusHealth"          "500"
+        //"BoundsHullName"        "DOTA_HULL_SIZE_TOWER"
 
-        "Ability1"              ""
-        "Ability8"              "mz_destroy"
+        "Ability1"              "mz_heal1"
+        "Ability2"              "mz_destroy"
     }
 
 	"mz_unit_spawner"
@@ -165,6 +220,7 @@
 			
 		"Ability1" "mz_creep_spawner"
 	}
+
 	"mz_unit_creep1"
     {
         "Model" "models/creeps/neutral_creeps/n_creep_gnoll/n_creep_gnoll_frost.vmdl"
