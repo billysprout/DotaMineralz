@@ -288,6 +288,7 @@
       }
     }
   }
+  
   "mz_upgrade_cannon1"
   {
     "BaseClass"                 "ability_datadriven"
