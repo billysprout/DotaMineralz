@@ -116,7 +116,7 @@ end
 function GameMode:InitGameMode()
   GameMode = self
   DebugPrint('[BAREBONES] Starting to load Barebones gamemode...')
-
+  _G.timesHarvested = 0
   -- Call the internal function to set up the rules/behaviors specified in constants.lua
   -- This also sets up event hooks for all event handlers in events.lua
   -- Check out internals/gamemode to see/modify the exact code
