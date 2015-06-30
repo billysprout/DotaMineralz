@@ -3,12 +3,8 @@ function Whispers(trigger)
     Say(nil,"You are not welcome here.", false)
 end
 
-function mz_heal1( keys )
-		Say(nil,"Healed Target!", false)
-
+function mz_harvest(keys)
+	_G.timesHarvested = _G.timesHarvested + 1
+	Say(nil,"harvested " .. _G.timesHarvested .. " times.", false)
 end
 
-function mz_harvest( keys )
-	print("harvested")
-	Say(nil,"Harvested", false)
-end

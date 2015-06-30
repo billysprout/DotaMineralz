@@ -85,7 +85,8 @@ function GameMode:OnHeroInGame(hero)
   hero:HeroLevelUp(true)
   -- These lines will create an item and add it to the player, effectively ensuring they start with the item
   hero:AddItem(CreateItem("item_quelling_blade", hero, hero))
-  
+  _G.timesHarvested = 0
+  _G.resourceTable = {}
   --[[ --These lines if uncommented will replace the W ability of any hero that loads into the game
     --with the "example_ability" ability
 
@@ -116,7 +117,7 @@ end
 function GameMode:InitGameMode()
   GameMode = self
   DebugPrint('[BAREBONES] Starting to load Barebones gamemode...')
-  _G.timesHarvested = 0
+
   -- Call the internal function to set up the rules/behaviors specified in constants.lua
   -- This also sets up event hooks for all event handlers in events.lua
   -- Check out internals/gamemode to see/modify the exact code

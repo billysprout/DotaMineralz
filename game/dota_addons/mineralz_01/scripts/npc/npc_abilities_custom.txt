@@ -418,114 +418,55 @@
     }
   }
 
-	"mz_creep_spawner"
-	{
-    //bugged/poorly written
-		"BaseClass" "ability_datadriven"
-		
-		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName" "antimage_blink"
-		"AbilityManaCost" "0"
-
-		"AbilityCastRange" "0"
-		"AbilityCastPoint" "0"
-		"AbilityChannelTime" "5.0"
-
-		"OnChannelSucceeded"
-		{
-			"CreateThinker"
-			{
-				"ModifierName" "spawner"
-				"Target" "CASTER"
-			}
-		}
-
-		"Modifiers"
-		{
-			"spawner"
-			{
-				"ThinkInterval" "5.0"
-				"OnIntervalThink"
-				{
-					"SpawnUnit"
-					{
-						"UnitName" "mz_unit_creep1"
-						"UnitCount" "1"
-						"SpawnRadius" "100"
-						"Target" "CASTER"	
-					}
-				}
-			}	
-		}
-	}
-
   "mz_econ_harvest"
   {
     "BaseClass"                 "ability_datadriven"
     "AbilityTextureName"        "clinkz_death_pact"
     "MaxLevel"                  "7"
 
-    "AbilityBehavior"            "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET |DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "AbilityBehavior"            "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityUnitTargetTeam"      "DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"      "DOTA_UNIT_TARGET_BUILDING | DOTA_UNIT_TARGET_MECHANICAL"
-    //"AbilityUnitDamageType"      "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitTargetType"      "DOTA_UNIT_TARGET_BUILDING"
+    "AbilityChannelTime" "50"
 
-    "AbilityCastRange"          "300"
-    "AbilityChannelTime"        "50.0"
-
-    "OnAbilityStart"
+    "OnSpellStart"
     {
       "ApplyModifier"
       {
         "ModifierName"  "modifier_harvesting"
-        "Target"     "CASTER"
-        //"Duration"    "%duration"
+        "Target"        "CASTER"
       }
     }
+
     "OnChannelFinish"
     {
       "RemoveModifier"
       {
         "ModifierName"  "modifier_harvesting"
-        "Target"     "CASTER"
+        "Target"        "CASTER"
       }
     }
+
     "Modifiers"
     {
       "modifier_harvesting"
       {
-        //"EffectName"    "particles/units/heroes/hero_omniknight/omniknight_purification.vpcf"
-        "EffectAttachType"  "follow_origin"
+        "Passive"      "0"
+        "IsHidden"      "0"
+        "IsDebuff"      "0"
+  
+         "ThinkInterval"  "1.0"
 
-        "ThinkInterval" "%econ_harvest_interval"
-        "OnIntervalThink"
-        {
-          "RunScript"
+          "OnIntervalThink"
           {
-            "ScriptFile"  "whispers.lua"
-            "Function"    "mz_harvest"
+            "RunScript"
+            {
+              "ScriptFile"  "whispers.lua"
+              "Function"    "mz_harvest"
+            }
           }
-        }
-      }
-    }
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"      "FIELD_FLOAT"
-        "econ_harvest_interval"      "1 0.8 0.6 0.5 0.4 0.3 0.2"
-      }
-      "02"
-      {
-        "var_type"      "FIELD_INTEGER"
-        "econ_harvest_multiplier_earth"    "1 2 3 4 5 6 7"
-      }
-      "03"
-      {
-        "VAR_TYPE"      "FIELD_INTEGER"
-        "econ_harvest_multiplier_mana" "1 2 3 4 5 6 7"
+        
       }
     }
   }
 }
-
