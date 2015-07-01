@@ -233,7 +233,7 @@
 
         "TeamName"          "DOTA_TEAM_GOODGUYS"
 
-        "AttackDesire"        "0.1"
+        "AttackDesire"        "3"
         "StatusHealth"        "999999"
         "ArmorPhysical"       "99"
     }

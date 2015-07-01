@@ -10,10 +10,10 @@ function mz_harvest(keys)
 
 	if(nodeClass=="mz_structure_earth") then
 		--HarvestEarth
+
 		--Housekeeping
 		Say (nil, "Harvesting Earth!", false)
-		_G.resource_earth = _G.resource_earth + 1
-		--Say (nil, " " .. _G.resource_earth, false)
+		
 
 		--pull relevant values from KV
 		local ability = keys.ability
@@ -21,6 +21,8 @@ function mz_harvest(keys)
 		local amount_harvested = ability:GetLevelSpecialValueFor("harvest_multiplier", ability_level)
 		local harvest_interval = ability:GetLevelSpecialValueFor("harvest_interval", ability_level)
 
+		--do the work
+		_G.resource_earth = _G.resource_earth + amount_harvested
 		SendOverheadEventMessage(keys.target,10,keys.caster, tonumber(amount_harvested),nil)
 	end
 end
