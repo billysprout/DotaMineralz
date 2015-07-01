@@ -86,7 +86,11 @@ function GameMode:OnHeroInGame(hero)
   -- These lines will create an item and add it to the player, effectively ensuring they start with the item
   hero:AddItem(CreateItem("item_quelling_blade", hero, hero))
   _G.timesHarvested = 0
-  _G.resourceTable = {}
+  _G.resource_earth = 0
+  _G.resource_fire = 0
+  _G.resource_water = 0
+  --_G.resourceTable[resource_fire] = 0
+  --_G.resourceTable[resource_water] = 0
   --[[ --These lines if uncommented will replace the W ability of any hero that loads into the game
     --with the "example_ability" ability
 

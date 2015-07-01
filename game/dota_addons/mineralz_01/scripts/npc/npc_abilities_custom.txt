@@ -434,7 +434,7 @@
       "ApplyModifier"
       {
         "ModifierName"  "modifier_harvesting"
-        "Target"        "CASTER"
+        "Target"        "TARGET"
       }
     }
 
@@ -443,7 +443,7 @@
       "RemoveModifier"
       {
         "ModifierName"  "modifier_harvesting"
-        "Target"        "CASTER"
+        "Target"        "TARGET"
       }
     }
 
@@ -455,17 +455,30 @@
         "IsHidden"      "0"
         "IsDebuff"      "0"
   
-         "ThinkInterval"  "1.0"
+        "ThinkInterval"  "%harvest_interval"
 
-          "OnIntervalThink"
+        "OnIntervalThink"
+        {
+          "RunScript"
           {
-            "RunScript"
-            {
-              "ScriptFile"  "whispers.lua"
-              "Function"    "mz_harvest"
-            }
+            "ScriptFile"  "whispers.lua"
+            "Function"    "mz_harvest"
           }
-        
+        }
+      }
+    }
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "harvest_interval"      "1 0.8 0.6 0.5 0.4 0.3 0.2"
+      }
+      "02"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "harvest_multiplier"    "1 2 3 4 5 6 7"
       }
     }
   }
