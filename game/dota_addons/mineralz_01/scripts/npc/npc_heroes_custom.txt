@@ -69,7 +69,8 @@
         "Ability2"                              "mz_spawn_wall1"
         "Ability3"                              "mz_spawn_healer1"
         "Ability4"								"mz_destroy_tree"
-        "Ability5"                              "mz_econ_harvest"
+        "Ability5"                              ""
+        "Ability6"                              "mz_econ_harvest"
         "VisionNighttimeRange"          "4000"  // Range of vision at night time.
 		"ModelScale" ".3"
 

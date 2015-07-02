@@ -5,17 +5,17 @@
 
 "CustomHeroList"
 {
-  "npc_dota_hero_ancient_apparition" "1"
-  "npc_dota_hero_dark_seer" "1"
-  "npc_dota_hero_morphling" "1"
-  "npc_dota_hero_puck" "1"
-  "npc_dota_hero_pudge" "1"
-  "npc_dota_hero_tinker" "1"
-  "npc_dota_hero_windrunner" "1"
-  "npc_dota_hero_skeleton_king" "1"
-  "npc_dota_hero_treant" "1"
-  "npc_dota_hero_wisp" "1"
-  "npc_dota_hero_undying" "1"
+  //"npc_dota_hero_ancient_apparition" "1"
+  //"npc_dota_hero_dark_seer" "1"
+  //"npc_dota_hero_morphling" "1"
+  //"npc_dota_hero_puck" "1"
+  //"npc_dota_hero_pudge" "1"
+  //"npc_dota_hero_tinker" "1"
+  //"npc_dota_hero_windrunner" "1"
+  //"npc_dota_hero_skeleton_king" "1"
+  //"npc_dota_hero_treant" "1"
+  //"npc_dota_hero_wisp" "1"
+  //"npc_dota_hero_undying" "1"
   "npc_dota_hero_phoenix" "1"
   
 }

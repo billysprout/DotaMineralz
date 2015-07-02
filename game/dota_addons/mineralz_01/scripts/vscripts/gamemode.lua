@@ -89,6 +89,7 @@ function GameMode:OnHeroInGame(hero)
   _G.resource_earth = 0
   _G.resource_fire = 0
   _G.resource_water = 0
+  _G.resource_arcane = 0
   --_G.resourceTable[resource_fire] = 0
   --_G.resourceTable[resource_water] = 0
   --[[ --These lines if uncommented will replace the W ability of any hero that loads into the game

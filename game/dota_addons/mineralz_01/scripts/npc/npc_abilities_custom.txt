@@ -401,14 +401,21 @@
       "RemoveModifier"
       {
         "Target"        "TARGET"
-        "ModifierName"  "healer"
+        "ModifierName"  "modifier_healer"
       }
     }
 
     "Modifiers"
     {
+      "AttachEffect"
+      {
+        "EffectName"        "particles\units\heroes\hero_treant\treant_leech_seed_projectile_heal_explode.vpcf"
+        "EffectAttachType"  "follow_origin"
+        "Target"            "TARGET"
+      }
       "modifier_healer"
       {
+        
         "Attributes"    "MODIFIER_ATTRIBUTE_MULTIPLE"
         "Properties"
         {
@@ -422,12 +429,16 @@
   {
     "BaseClass"                 "ability_datadriven"
     "AbilityTextureName"        "clinkz_death_pact"
-    "MaxLevel"                  "7"
+    "MaxLevel"                  "8"
 
     "AbilityBehavior"            "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityUnitTargetTeam"      "DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityUnitTargetType"      "DOTA_UNIT_TARGET_BUILDING"
     "AbilityChannelTime" "50"
+   
+    "AbilityCastRange"        "200"
+    "AbilityCastPoint"        "0.0"
+    "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_3"
 
     "OnSpellStart"
     {

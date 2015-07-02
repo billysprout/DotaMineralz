@@ -237,4 +237,73 @@
         "StatusHealth"        "999999"
         "ArmorPhysical"       "99"
     }
+
+    "mz_structure_earth"
+    {
+        "BaseClass"         "npc_dota_tower"
+        "Model"             "models\buildings\building_racks_melee_reference.vmdl"
+        "ModelScale"        ".25"
+                "Level"             "99"
+
+        "AttackCapabilities"    "DOTA_UNIT_CAP_CANT_ATTACK"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_NONE"
+
+        "TeamName"          "DOTA_TEAM_GOODGUYS"
+
+        "AttackDesire"        "0"
+        "StatusHealth"        "999999"
+        "ArmorPhysical"       "99"
+    }
+
+    "mz_structure_fire"
+    {
+        "BaseClass"         "npc_dota_tower"
+        "Model"             "models\buildings\building_racks_ranged_reference.vmdl"
+        "ModelScale"        ".5"
+                "Level"             "99"
+
+        "AttackCapabilities"    "DOTA_UNIT_CAP_CANT_ATTACK"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_NONE"
+
+        "TeamName"          "DOTA_TEAM_GOODGUYS"
+
+        "AttackDesire"        "0"
+        "StatusHealth"        "999999"
+        "ArmorPhysical"       "99"
+    }
+
+    "mz_structure_arcane"
+    {
+        "BaseClass"         "npc_dota_tower"
+        "Model"             "models\buildings\building_plain_reference.vmdl"
+        
+                "Level"             "99"
+
+        "AttackCapabilities"    "DOTA_UNIT_CAP_CANT_ATTACK"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_NONE"
+
+        "TeamName"          "DOTA_TEAM_GOODGUYS"
+
+        "AttackDesire"        "0"
+        "StatusHealth"        "999999"
+        "ArmorPhysical"       "99"
+    }
+
+    "mz_structure_water"
+    {
+        "BaseClass"         "npc_dota_tower"
+        "Model"             "models\props_structures\bad_barracks_stones005.vmdl"
+        "ModelScale"        "2.0"
+     
+        "Level"             "99"
+
+        "AttackCapabilities"    "DOTA_UNIT_CAP_CANT_ATTACK"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_NONE"
+
+        "TeamName"          "DOTA_TEAM_GOODGUYS"
+
+        "AttackDesire"        "0"
+        "StatusHealth"        "999999"
+        "ArmorPhysical"       "99"
+    }
 }
