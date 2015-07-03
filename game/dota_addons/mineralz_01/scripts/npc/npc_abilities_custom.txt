@@ -239,27 +239,39 @@
 
   "mz_spawn_wall1"
   {
+    "Precache"
+    {
+        "model" "models\props_structures\good_statue008.vmdl"
+    }
+
+
     "BaseClass"               "ability_datadriven"
     "AbilityTextureName"      "axe_berserkers_call"
     "MaxLevel"                "1"
 
-    "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_POINT | | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityChannelTime" "1.5"
     "AbilityCastRange" "600"
     "AbilityCastPoint" "0"
 
     "OnChannelSucceeded"
     {
-      "SpawnUnit"
+      "RunScript"
       {
-        "UnitName"    "mz_structure_wall1"
-        "Target"     "POINT"
-        "UnitCount"    "1"
-        "OnSpawn"
-        {
-          
-        }
+        "ScriptFile"  "whispers.lua"
+        "Function"    "spawn_wall1"
+        "Target"      "POINT"
       }
+      //"SpawnUnit"
+      //{
+      //  "UnitName"    "mz_structure_wall1"
+      //  "Target"     "POINT"
+      //  "UnitCount"    "1"
+      //  "OnSpawn"
+      //  {
+          
+      //  }
+      //}
     }
   }
 

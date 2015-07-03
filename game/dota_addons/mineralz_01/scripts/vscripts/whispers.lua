@@ -1,8 +1,17 @@
---Enigma trigger
+--[[
+  _G.timesHarvested = 0
+  _G.resource_earth = 200
+  _G.resource_fire = 200
+  _G.resource_water = 200
+  _G.resource_arcane = 200
+]]
+
+--Enigma trigger - Babby's first function
 function Whispers(trigger)
     Say(nil,"You are not welcome here.", false)
 end
 
+--Pull resources from a building if it's a resource node.
 function mz_harvest(keys)
 	nodeClass = keys.target:GetUnitName()
 	_G.timesHarvested = _G.timesHarvested + 1
@@ -76,5 +85,28 @@ function mz_harvest(keys)
 		_G.resource_water = _G.resource_water + amount_harvested
 		Say(nil,"Water: " .. _G.resource_water, false)
 		SendOverheadEventMessage(keys.target,12,keys.caster, tonumber(amount_harvested),nil)
+	end
+end
+
+--Spawn a wall1 if you have sufficient resources
+function spawn_wall1(keys)
+	--PrintTable(keys)
+
+	--Set Member Variables
+	caster = keys.caster:GetOwner()
+	casterTeam = caster:GetTeam()
+	targetLocation = keys.target_points[1]
+
+	--Check resources
+	--Spawn the Wall Unit under caster's control
+	local newWall = CreateUnitByName("mz_structure_wall1", targetLocation, false, caster, caster, casterTeam)
+	--Say(nil,"Created wall for player.", false)
+	newWall:SetControllableByPlayer(keys.caster:GetPlayerOwnerID(), true)
+end
+
+function verifyResources(String buildingType)
+	if(buildingType == 'wall1')
+		Say(nil,"You have enough Earth!", false)
+		return _G.resource_earth >= 20
 	end
 end
