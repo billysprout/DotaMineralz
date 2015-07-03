@@ -86,7 +86,7 @@ function GameMode:OnHeroInGame(hero)
   -- These lines will create an item and add it to the player, effectively ensuring they start with the item
   hero:AddItem(CreateItem("item_quelling_blade", hero, hero))
   _G.timesHarvested = 0
-  _G.resource_earth = 200
+  _G.resource_earth = 0
   _G.resource_fire = 200
   _G.resource_water = 200
   _G.resource_arcane = 200
